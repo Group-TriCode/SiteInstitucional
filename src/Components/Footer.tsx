@@ -9,7 +9,6 @@ const Footer: React.FC = () => {
     <footer className="bg-black text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo e Descrição */}
           <div className="col-span-1 md:col-span-2">
             <Logo size="md" className="mb-4" />
             <p className="text-gray-400 text-sm mb-4 max-w-md">
@@ -42,7 +41,6 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Links Rápidos */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-purple-500">Links Rápidos</h3>
             <ul className="space-y-2">
@@ -69,7 +67,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contato */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-purple-500">Contato</h3>
             <ul className="space-y-2 text-gray-400 text-sm">
