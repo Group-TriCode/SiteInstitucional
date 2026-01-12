@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Botao from './Botao';
 import AlternadorTema from './AlternadorTema';
 
 const Cabecalho: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleFaleConosco = () => {
+    setIsMenuOpen(false);
+    navigate('/contato#pronto-para-comecar');
+  };
 
   const navLinks = [
     { path: '/', label: 'Home' },
@@ -25,6 +31,7 @@ const Cabecalho: React.FC = () => {
           </Link>
 
           <div className="hidden md:flex items-center space-x-4">
+            <AlternadorTema />
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -38,12 +45,11 @@ const Cabecalho: React.FC = () => {
                 {link.label}
               </Link>
             ))}
-            <AlternadorTema />
-            <Link to="/contato">
+            <button onClick={handleFaleConosco}>
               <Botao variant="primary" size="sm">
                 Fale Conosco
               </Botao>
-            </Link>
+            </button>
           </div>
 
           <div className="md:hidden flex items-center space-x-2">
@@ -89,11 +95,11 @@ const Cabecalho: React.FC = () => {
                   {link.label}
                 </Link>
               ))}
-              <Link to="/contato" onClick={() => setIsMenuOpen(false)}>
+              <button onClick={handleFaleConosco} className="w-full">
                 <Botao variant="primary" size="sm" className="w-full">
                   Fale Conosco
                 </Botao>
-              </Link>
+              </button>
             </div>
           </div>
         )}

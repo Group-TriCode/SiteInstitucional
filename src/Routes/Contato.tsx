@@ -1,7 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Cartao from '../Components/Cartao';
 
 const Contato: React.FC = () => {
+  const location = useLocation();
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    if (location.hash === '#pronto-para-comecar') {
+      const element = document.getElementById('pronto-para-comecar');
+      if (element) {
+        setTimeout(() => {
+          const isMobile = window.innerWidth < 768;
+          const offset = isMobile ? 400 : 250;
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - offset;
+          
+          let isScrolling = true;
+          let lastScrollTop = window.pageYOffset;
+          
+          const checkScrollEnd = () => {
+            const currentScrollTop = window.pageYOffset;
+            
+            if (Math.abs(currentScrollTop - lastScrollTop) < 1) {
+              if (isScrolling) {
+                isScrolling = false;
+                setTimeout(() => {
+                  setShouldAnimate(true);
+                  setTimeout(() => {
+                    setShouldAnimate(false);
+                  }, 1500);
+                }, 200);
+              }
+            } else {
+              lastScrollTop = currentScrollTop;
+              requestAnimationFrame(checkScrollEnd);
+            }
+          };
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          
+          setTimeout(() => {
+            requestAnimationFrame(checkScrollEnd);
+          }, 300);
+          
+          setTimeout(() => {
+            if (isScrolling) {
+              isScrolling = false;
+              setShouldAnimate(true);
+              setTimeout(() => {
+                setShouldAnimate(false);
+              }, 1500);
+            }
+          }, 2000);
+        }, 100);
+      }
+    }
+  }, [location]);
   const benefits = [
     {
       title: 'Resposta Rápida',
@@ -98,19 +156,59 @@ const Contato: React.FC = () => {
               ))}
             </div>
 
-            <div className="bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-700 dark:to-black rounded-lg p-6 md:p-8 text-white text-center transition-colors duration-300">
+            <div id="pronto-para-comecar" className="bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-700 dark:to-black rounded-lg p-6 md:p-8 text-white text-center transition-colors duration-300">
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
                 Pronto para começar seu projeto?
               </h3>
               <p className="text-base md:text-lg text-purple-100 dark:text-purple-200 mb-4 md:mb-6 max-w-2xl mx-auto">
                 Não perca tempo! Entre em contato agora e receba uma proposta personalizada para suas necessidades.
               </p>
-              <a
-                href="mailto:contatocomtricode@gmail.com"
-                className="inline-block px-6 py-3 md:px-8 md:py-4 bg-white dark:bg-gray-100 text-purple-600 dark:text-purple-700 font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors duration-200 shadow-lg hover:shadow-xl text-sm md:text-base"
-              >
-                Enviar Email Agora
-              </a>
+              <div className="relative inline-block">
+                {shouldAnimate && (
+                  <>
+                    {[...Array(20)].map((_, i) => {
+                      const color = '#ffffff';
+                      const angle = (360 / 20) * i;
+                      const startDistance = 20;
+                      const endDistance = 150 + Math.random() * 100;
+                      const startX = Math.cos((angle * Math.PI) / 180) * startDistance;
+                      const startY = Math.sin((angle * Math.PI) / 180) * startDistance;
+                      const endX = Math.cos((angle * Math.PI) / 180) * endDistance;
+                      const endY = Math.sin((angle * Math.PI) / 180) * endDistance + 100;
+                      const delay = Math.random() * 0.2;
+                      const size = 8 + Math.random() * 6;
+                      
+                      return (
+                        <div
+                          key={i}
+                          className="confetti"
+                          style={{
+                            '--confetti-color': color,
+                            '--end-x': `${endX}px`,
+                            '--end-y': `${endY}px`,
+                            left: '50%',
+                            top: '50%',
+                            transform: `translate(-50%, -50%) translate(${startX}px, ${startY}px)`,
+                            width: `${size}px`,
+                            height: `${size}px`,
+                            animationDelay: `${delay}s`,
+                            backgroundColor: color,
+                          } as React.CSSProperties}
+                        />
+                      );
+                    })}
+                  </>
+                )}
+                <a
+                  href="mailto:contatocomtricode@gmail.com"
+                  className={`inline-block px-6 py-3 md:px-8 md:py-4 bg-white dark:bg-gray-100 text-purple-600 dark:text-purple-700 font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200 transition-all duration-200 shadow-lg hover:shadow-xl text-sm md:text-base relative z-10 ${
+                    shouldAnimate ? 'animate-[attention-pulse_1.5s_ease-in-out]' : ''
+                  }`}
+                  style={shouldAnimate ? { animation: 'attention-pulse 1.5s ease-in-out' } : {}}
+                >
+                  Enviar Email Agora
+                </a>
+              </div>
             </div>
           </div>
         </div>
