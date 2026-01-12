@@ -45,8 +45,8 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <section className="bg-gradient-to-b from-black via-purple-950 to-black text-white py-16 md:py-20">
+    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors duration-300">
+      <section className="bg-gradient-to-b from-black via-purple-950 to-black dark:from-black dark:via-purple-950 dark:to-black text-white py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
@@ -59,24 +59,24 @@ const FAQ: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white dark:bg-black transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
               {faqs.map((faq, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-200"
+                  className="bg-white dark:bg-gray-900 rounded-lg shadow-md dark:shadow-gray-900/50 overflow-hidden transition-all duration-200"
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                    className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
                   >
-                    <span className="text-lg font-semibold text-gray-900 pr-4">
+                    <span className="text-lg font-semibold text-gray-900 dark:text-white pr-4">
                       {faq.question}
                     </span>
                     <svg
-                      className={`w-6 h-6 text-purple-600 flex-shrink-0 transition-transform duration-200 ${
+                      className={`w-6 h-6 text-purple-600 dark:text-purple-400 flex-shrink-0 transition-transform duration-200 ${
                         openIndex === index ? 'transform rotate-180' : ''
                       }`}
                       fill="none"
@@ -91,7 +91,7 @@ const FAQ: React.FC = () => {
                   </button>
                   {openIndex === index && (
                     <div className="px-6 pb-5">
-                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{faq.answer}</p>
                     </div>
                   )}
                 </div>
@@ -101,18 +101,18 @@ const FAQ: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-gray-50">
+      <section className="py-12 md:py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
               Ainda tem dúvidas?
             </h2>
-            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
+            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
               Entre em contato conosco e teremos prazer em esclarecer qualquer questão
             </p>
             <Link
               to="/contato"
-              className="inline-block px-8 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors duration-200"
+              className="inline-block px-8 py-3 bg-purple-600 dark:bg-purple-700 text-white font-semibold rounded-lg hover:bg-purple-700 dark:hover:bg-purple-800 transition-colors duration-200"
             >
               Fale Conosco
             </Link>

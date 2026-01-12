@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../Components/Card';
+import Cartao from '../Components/Cartao';
 
 const Contato: React.FC = () => {
   const benefits = [
@@ -33,8 +33,8 @@ const Contato: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <section className="bg-gradient-to-b from-black via-purple-950 to-black text-white py-16 md:py-20">
+    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors duration-300">
+      <section className="bg-gradient-to-b from-black via-purple-950 to-black dark:from-black dark:via-purple-950 dark:to-black text-white py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
@@ -50,64 +50,64 @@ const Contato: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white dark:bg-black transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
                 Entre em Contato
               </h2>
-              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
                 Escolha a forma que preferir. Nossa equipe está pronta para atender você com excelência e profissionalismo.
               </p>
             </div>
 
             <div className="mb-8 md:mb-12">
-              <Card hover className="text-center p-6">
+              <Cartao hover className="text-center p-6">
                 <div className="flex justify-center mb-4">
                   <svg className="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 text-lg">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">
                   Email
                 </h3>
                 <a
                   href="mailto:contatocomtricode@gmail.com"
-                  className="text-purple-600 hover:text-purple-700 transition-colors duration-200 text-sm font-medium block mb-3 break-all"
+                  className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-200 text-sm font-medium block mb-3 break-all"
                 >
                   contatocomtricode@gmail.com
                 </a>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Envie suas dúvidas, solicite um orçamento ou conheça nossos serviços
                 </p>
-              </Card>
+              </Cartao>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
               {benefits.map((benefit, index) => (
-                <Card key={index} hover className="text-center p-6">
+                <Cartao key={index} hover className="text-center p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>
-                  <h3 className="font-bold text-gray-900 mb-2 text-lg">
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
                     {benefit.description}
                   </p>
-                </Card>
+                </Cartao>
               ))}
             </div>
 
-            <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg p-6 md:p-8 text-white text-center">
+            <div className="bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-700 dark:to-black rounded-lg p-6 md:p-8 text-white text-center transition-colors duration-300">
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
                 Pronto para começar seu projeto?
               </h3>
-              <p className="text-base md:text-lg text-purple-100 mb-4 md:mb-6 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-purple-100 dark:text-purple-200 mb-4 md:mb-6 max-w-2xl mx-auto">
                 Não perca tempo! Entre em contato agora e receba uma proposta personalizada para suas necessidades.
               </p>
               <a
                 href="mailto:contatocomtricode@gmail.com"
-                className="inline-block px-6 py-3 md:px-8 md:py-4 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 shadow-lg hover:shadow-xl text-sm md:text-base"
+                className="inline-block px-6 py-3 md:px-8 md:py-4 bg-white dark:bg-gray-100 text-purple-600 dark:text-purple-700 font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors duration-200 shadow-lg hover:shadow-xl text-sm md:text-base"
               >
                 Enviar Email Agora
               </a>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ButtonProps {
+interface BotaoProps {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
@@ -9,7 +9,7 @@ interface ButtonProps {
   className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Botao: React.FC<BotaoProps> = ({
   children,
   variant = 'primary',
   size = 'md',
@@ -42,5 +42,5 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export default Button;
+export default Botao;
 

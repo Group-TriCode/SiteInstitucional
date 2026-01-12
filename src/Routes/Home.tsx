@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../Components/Button';
-import Card from '../Components/Card';
+import Botao from '../Components/Botao';
+import Cartao from '../Components/Cartao';
 
 const Home: React.FC = () => {
   const services = [
@@ -45,8 +45,8 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <section className="bg-gradient-to-b from-black via-purple-950 to-black text-white py-16 md:py-20">
+    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
+      <section className="bg-gradient-to-b from-black via-purple-950 to-black dark:from-black dark:via-purple-950 dark:to-black text-white py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
@@ -58,54 +58,54 @@ const Home: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contato">
-                <Button variant="primary" size="lg">
+                <Botao variant="primary" size="lg">
                   Começar Agora
-                </Button>
+                </Botao>
               </Link>
               <Link to="/sobre">
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-black">
+                <Botao variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-black dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black">
                   Saiba Mais
-                </Button>
+                </Botao>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-gray-50">
+      <section className="py-12 md:py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
                 Nossos Serviços
               </h2>
-              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
                 Oferecemos soluções completas em desenvolvimento de software para empresas de todos os tamanhos
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
               {services.map((service, index) => (
-                <Card key={index} hover className="text-center">
+                <Cartao key={index} hover className="text-center">
                   <div className="flex justify-center mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600">{service.description}</p>
-                </Card>
+                  <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
+                </Cartao>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white dark:bg-black transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
                 Por que escolher a TriCode?
               </h2>
-              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
                 Comprometidos com a excelência em cada projeto
               </p>
             </div>
@@ -113,11 +113,11 @@ const Home: React.FC = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="flex items-center space-x-3 p-4 rounded-lg bg-purple-50 border border-purple-100"
+                  className="flex items-center space-x-3 p-4 rounded-lg bg-purple-50 dark:bg-purple-900/20 border border-purple-100 dark:border-purple-800 transition-colors duration-300"
                 >
                   <div className="flex-shrink-0">
                     <svg
-                      className="w-6 h-6 text-purple-600"
+                      className="w-6 h-6 text-purple-600 dark:text-purple-400"
                       fill="none"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -128,7 +128,7 @@ const Home: React.FC = () => {
                       <path d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-gray-800 font-medium">{feature}</span>
+                  <span className="text-gray-800 dark:text-gray-200 font-medium">{feature}</span>
                 </div>
               ))}
             </div>
@@ -136,17 +136,17 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-gradient-to-r from-purple-600 to-purple-800 text-white">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-700 dark:to-black text-white transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">
               Pronto para transformar seu negócio?
             </h2>
-            <p className="text-base md:text-lg lg:text-xl mb-6 md:mb-8 text-purple-100 max-w-2xl mx-auto px-4">
+            <p className="text-base md:text-lg lg:text-xl mb-6 md:mb-8 text-purple-100 dark:text-purple-200 max-w-2xl mx-auto px-4">
               Entre em contato conosco e descubra como podemos ajudar você a alcançar seus objetivos
             </p>
             <Link to="/contato">
-              <button className="px-8 py-4 text-lg font-semibold rounded-lg bg-white text-purple-600 hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-800">
+              <button className="px-8 py-4 text-lg font-semibold rounded-lg bg-white dark:bg-gray-100 text-purple-600 dark:text-purple-700 hover:bg-gray-100 dark:hover:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-800 dark:focus:ring-offset-purple-900">
                 Solicitar Orçamento
               </button>
             </Link>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../Components/Card';
+import Cartao from '../Components/Cartao';
 
 const Sobre: React.FC = () => {
   const values = [
@@ -61,8 +61,8 @@ const Sobre: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <section className="bg-gradient-to-b from-black via-purple-950 to-black text-white py-16 md:py-20">
+    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors duration-300">
+      <section className="bg-gradient-to-b from-black via-purple-950 to-black dark:from-black dark:via-purple-950 dark:to-black text-white py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
@@ -75,14 +75,14 @@ const Sobre: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white dark:bg-black transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
                 Nossa Missão
               </h2>
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto px-4">
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto px-4">
                 A TriCode nasceu com o propósito de democratizar o acesso a soluções de software de alta qualidade. 
                 Acreditamos que toda empresa, independente do tamanho, merece tecnologia de ponta para impulsionar 
                 seu crescimento. Combinamos expertise técnica, criatividade e comprometimento para entregar projetos 
@@ -93,63 +93,63 @@ const Sobre: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-gray-50">
+      <section className="py-12 md:py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
                 Nossos Valores
               </h2>
-              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
                 Princípios que guiam cada projeto e relacionamento
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {values.map((value, index) => (
-                <Card key={index} hover className="text-center">
+                <Cartao key={index} hover className="text-center">
                   <div className="flex justify-center mb-4">{value.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     {value.title}
                   </h3>
-                  <p className="text-gray-600">{value.description}</p>
-                </Card>
+                  <p className="text-gray-600 dark:text-gray-300">{value.description}</p>
+                </Cartao>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white dark:bg-black transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
                 Como Trabalhamos
               </h2>
-              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
                 Processo estruturado para garantir o sucesso do seu projeto
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
               {team.map((item, index) => (
-              <Card key={index} className="text-center">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <Cartao key={index} className="text-center">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {item.name}
                 </h3>
-                <p className="text-purple-600 font-medium mb-3">{item.role}</p>
-                <p className="text-gray-600">{item.description}</p>
-              </Card>
+                <p className="text-purple-600 dark:text-purple-400 font-medium mb-3">{item.role}</p>
+                <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
+              </Cartao>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-gray-50">
+      <section className="py-12 md:py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
                 Nosso Processo
               </h2>
             </div>
@@ -178,16 +178,16 @@ const Sobre: React.FC = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 p-6 bg-white rounded-lg shadow-md"
+                  className="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 p-6 bg-white dark:bg-black rounded-lg shadow-md dark:shadow-gray-900/50 transition-colors duration-300"
                 >
-                  <div className="flex-shrink-0 w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                  <div className="flex-shrink-0 w-16 h-16 bg-purple-600 dark:bg-purple-700 text-white rounded-full flex items-center justify-center text-2xl font-bold">
                     {item.step}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600">{item.description}</p>
+                    <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
                   </div>
                 </div>
               ))}

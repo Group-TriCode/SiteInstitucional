@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from './Logo';
-import Button from './Button';
+import Botao from './Botao';
+import AlternadorTema from './AlternadorTema';
 
-const Header: React.FC = () => {
+const Cabecalho: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -17,14 +17,14 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="bg-black sticky top-0 z-50 shadow-lg">
+    <header className="bg-black sticky top-0 z-50 shadow-lg transition-colors duration-300">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <Logo size="md" />
+            <img src="/TriCode Logo.png" alt="TriCode Logo" className="h-20 w-auto" />
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -38,18 +38,21 @@ const Header: React.FC = () => {
                 {link.label}
               </Link>
             ))}
+            <AlternadorTema />
             <Link to="/contato">
-              <Button variant="primary" size="sm">
+              <Botao variant="primary" size="sm">
                 Fale Conosco
-              </Button>
+              </Botao>
             </Link>
           </div>
 
-          <button
-            className="md:hidden text-white focus:outline-none"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
+          <div className="md:hidden flex items-center space-x-2">
+            <AlternadorTema />
+            <button
+              className="text-white focus:outline-none"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -65,7 +68,8 @@ const Header: React.FC = () => {
                 <path d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
-          </button>
+            </button>
+          </div>
         </div>
 
         {isMenuOpen && (
@@ -86,9 +90,9 @@ const Header: React.FC = () => {
                 </Link>
               ))}
               <Link to="/contato" onClick={() => setIsMenuOpen(false)}>
-                <Button variant="primary" size="sm" className="w-full">
+                <Botao variant="primary" size="sm" className="w-full">
                   Fale Conosco
-                </Button>
+                </Botao>
               </Link>
             </div>
           </div>
@@ -98,5 +102,5 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default Cabecalho;
 
