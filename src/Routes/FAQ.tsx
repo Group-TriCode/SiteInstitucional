@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface FAQItem {
   question: string;
@@ -45,22 +46,20 @@ const FAQ: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-black via-purple-950 to-black text-white py-20">
+      <section className="bg-gradient-to-b from-black via-purple-950 to-black text-white py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
               Perguntas <span className="text-purple-500">Frequentes</span>
             </h1>
-            <p className="text-xl text-gray-300">
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-300 px-4">
               Encontre respostas para as principais dúvidas sobre nossos serviços
             </p>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
@@ -102,22 +101,21 @@ const FAQ: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Ainda tem dúvidas?
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
               Entre em contato conosco e teremos prazer em esclarecer qualquer questão
             </p>
-            <a
-              href="/contato"
+            <Link
+              to="/contato"
               className="inline-block px-8 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors duration-200"
             >
               Fale Conosco
-            </a>
+            </Link>
           </div>
         </div>
       </section>

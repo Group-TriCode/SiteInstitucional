@@ -20,12 +20,10 @@ const Header: React.FC = () => {
     <header className="bg-black sticky top-0 z-50 shadow-lg">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="flex items-center">
             <Logo size="md" />
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -47,7 +45,6 @@ const Header: React.FC = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -71,7 +68,6 @@ const Header: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4">
             <div className="flex flex-col space-y-4">

@@ -1,27 +1,28 @@
 import React from 'react';
+import type { UseFormRegisterReturn } from 'react-hook-form';
 
 interface TextareaProps {
   placeholder?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   name?: string;
   id?: string;
   required?: boolean;
   className?: string;
   label?: string;
   rows?: number;
+  register?: UseFormRegisterReturn;
+  error?: string;
 }
 
 const Textarea: React.FC<TextareaProps> = ({
   placeholder,
-  value,
-  onChange,
   name,
   id,
   required = false,
   className = '',
   label,
-  rows = 4
+  rows = 4,
+  register,
+  error
 }) => {
   return (
     <div className="w-full">
@@ -33,14 +34,16 @@ const Textarea: React.FC<TextareaProps> = ({
       )}
       <textarea
         id={id || name}
-        name={name}
+        {...register}
         placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        required={required}
         rows={rows}
-        className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-vertical ${className}`}
+        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-vertical ${
+          error ? 'border-red-500' : 'border-gray-300'
+        } ${className}`}
       />
+      {error && (
+        <p className="mt-1 text-sm text-red-600">{error}</p>
+      )}
     </div>
   );
 };

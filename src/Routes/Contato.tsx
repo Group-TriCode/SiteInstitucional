@@ -1,185 +1,116 @@
-import React, { useState } from 'react';
-import Input from '../Components/Input';
-import Textarea from '../Components/Textarea';
-import Button from '../Components/Button';
+import React from 'react';
 import Card from '../Components/Card';
 
 const Contato: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    // Simulação de envio (substituir por integração real)
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-      
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
-    }, 1500);
-  };
-
-  const contactInfo = [
+  const benefits = [
     {
-      icon: '📧',
-      title: 'Email',
-      content: 'contato@tricode.com.br',
-      link: 'mailto:contato@tricode.com.br'
+      title: 'Resposta Rápida',
+      description: 'Respondemos em até 24 horas úteis',
+      icon: (
+        <svg className="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      )
+    },
+    {
+      title: 'Atendimento Personalizado',
+      description: 'Cada projeto recebe atenção dedicada',
+      icon: (
+        <svg className="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+      )
+    },
+    {
+      title: 'Solução Customizada',
+      description: 'Trabalhamos sob medida para suas necessidades',
+      icon: (
+        <svg className="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      )
     }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-black via-purple-950 to-black text-white py-20">
+      <section className="bg-gradient-to-b from-black via-purple-950 to-black text-white py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Entre em <span className="text-purple-500">Contato</span>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
+              Vamos <span className="text-purple-500">Conversar</span>
             </h1>
-            <p className="text-xl text-gray-300">
-              Estamos prontos para transformar suas ideias em realidade
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-3 md:mb-4">
+              Prontos para transformar suas ideias em realidade
+            </p>
+            <p className="text-base md:text-lg text-gray-400 px-4">
+              Entre em contato e descubra como podemos ajudar seu negócio a crescer
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Contact Info */}
-            <div className="lg:col-span-1">
-              <div className="space-y-6">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    Informações de Contato
-                  </h2>
-                  <p className="text-gray-600 mb-6">
-                    Preencha o formulário ao lado ou entre em contato através dos canais abaixo.
-                    Responderemos o mais breve possível.
-                  </p>
-                </div>
-                {contactInfo.map((info, index) => (
-                  <Card key={index} className="p-4">
-                    <div className="flex items-start space-x-4">
-                      <div className="text-3xl">{info.icon}</div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-1">
-                          {info.title}
-                        </h3>
-                        {info.link ? (
-                          <a
-                            href={info.link}
-                            className="text-purple-600 hover:text-purple-700 transition-colors duration-200"
-                          >
-                            {info.content}
-                          </a>
-                        ) : (
-                          <p className="text-gray-600">{info.content}</p>
-                        )}
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+                Entre em Contato
+              </h2>
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+                Escolha a forma que preferir. Nossa equipe está pronta para atender você com excelência e profissionalismo.
+              </p>
             </div>
 
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <Card className="p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Envie sua Mensagem
-                </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <Input
-                      label="Nome Completo"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      placeholder="Seu nome"
-                    />
-                    <Input
-                      label="Email"
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="seu@email.com"
-                    />
-                  </div>
-                  <Input
-                    label="Assunto"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    placeholder="Sobre o que deseja falar?"
-                  />
-                  <Textarea
-                    label="Mensagem"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Conte-nos mais sobre seu projeto ou dúvida..."
-                    rows={6}
-                  />
-                  
-                  {submitStatus === 'success' && (
-                    <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                      <p className="text-green-800">
-                        ✓ Mensagem enviada com sucesso! Entraremos em contato em breve.
-                      </p>
-                    </div>
-                  )}
-                  
-                  {submitStatus === 'error' && (
-                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                      <p className="text-red-800">
-                        ✗ Erro ao enviar mensagem. Tente novamente.
-                      </p>
-                    </div>
-                  )}
-
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    className="w-full md:w-auto"
-                  >
-                    {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
-                  </Button>
-                </form>
+            <div className="mb-8 md:mb-12">
+              <Card hover className="text-center p-6">
+                <div className="flex justify-center mb-4">
+                  <svg className="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2 text-lg">
+                  Email
+                </h3>
+                <a
+                  href="mailto:contatocomtricode@gmail.com"
+                  className="text-purple-600 hover:text-purple-700 transition-colors duration-200 text-sm font-medium block mb-3 break-all"
+                >
+                  contatocomtricode@gmail.com
+                </a>
+                <p className="text-gray-600 text-sm">
+                  Envie suas dúvidas, solicite um orçamento ou conheça nossos serviços
+                </p>
               </Card>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+              {benefits.map((benefit, index) => (
+                <Card key={index} hover className="text-center p-6">
+                  <div className="flex justify-center mb-4">{benefit.icon}</div>
+                  <h3 className="font-bold text-gray-900 mb-2 text-lg">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    {benefit.description}
+                  </p>
+                </Card>
+              ))}
+            </div>
+
+            <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg p-6 md:p-8 text-white text-center">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
+                Pronto para começar seu projeto?
+              </h3>
+              <p className="text-base md:text-lg text-purple-100 mb-4 md:mb-6 max-w-2xl mx-auto">
+                Não perca tempo! Entre em contato agora e receba uma proposta personalizada para suas necessidades.
+              </p>
+              <a
+                href="mailto:contatocomtricode@gmail.com"
+                className="inline-block px-6 py-3 md:px-8 md:py-4 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 shadow-lg hover:shadow-xl text-sm md:text-base"
+              >
+                Enviar Email Agora
+              </a>
             </div>
           </div>
         </div>
