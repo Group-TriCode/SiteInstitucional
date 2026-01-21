@@ -16,16 +16,31 @@ const Rodape: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/tricode.br/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-purple-500 transition-colors duration-200"
                 aria-label="Instagram"
               >
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 2H8a6 6 0 00-6 6v8a6 6 0 006 6h8a6 6 0 006-6V8a6 6 0 00-6-6z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 7.5h.01" />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/grupotricode/about/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-purple-500 transition-colors duration-200"
+                aria-label="LinkedIn"
+              >
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <rect x="2" y="2" width="20" height="20" rx="3" ry="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <line x1="8" y1="10" x2="8" y2="16" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="8" cy="7.5" r="0.5" fill="currentColor" />
+                  <line x1="12" y1="16" x2="12" y2="12" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 12.5C12 11.5 13 10.5 14 10.5C15 10.5 16 11.5 16 12.5V16" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
             </div>
